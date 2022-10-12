@@ -1,3 +1,16 @@
+    public String toString() {
+        if (indices.size() == 0) {return "";}
+
+        StringBuilder str = new StringBuilder();
+        for (int i = 0; i < indices.size() - 1; i++) {
+            String flagNext = (indices.get(i).next == indices.get(i + 1)) ? ">" : "";
+            String flagPrev = (indices.get(i + 1).prev == indices.get(i)) ? "<" : "";
+            str.append(indices.get(i).data); str.append(" ").append(flagPrev).append("-").append(flagNext).append(" ");
+        } str.append(tail==null?"":tail.data);
+
+        return str.toString();
+    } // return String representing the list
+
 //    myTest
     private final int distance = 20; // distance between operation-output and IDLList details
     private final String titleSeparator = "| "; // which separator between HEAD TAIL SIZE
